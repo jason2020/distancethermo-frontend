@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Router, Switch, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import Login from "./components/Login/Login";

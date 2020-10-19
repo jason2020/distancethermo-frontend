@@ -1,11 +1,20 @@
 import React from "react";
 
-const Login = () => {
-  return (
-    <>
-      <p>Login here.</p>
-    </>
-  );
-};
+import api from "../../api";
 
-export default Login;
+export default class Login extends React.Component {
+  state = {};
+
+  processLogin = () => {
+    api.get("/login");
+  };
+
+  render() {
+    return (
+      <>
+        <input type="text" />
+        <button onClick={this.processLogin}>Login</button>
+      </>
+    );
+  }
+}
