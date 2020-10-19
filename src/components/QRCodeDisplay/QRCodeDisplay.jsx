@@ -1,11 +1,65 @@
 import React from "react";
+import QRCode from "qrcode";
+import styled, { css } from 'styled-components'
 
-const QRCodeDisplay = () => {
-  return (
-    <>
-      <p>QRCodeDisplay here.</p>
-    </>
-  );
-};
+const QRCanvas = styled.canvas`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid royalblue;
+  color: royalblue;
+  margin: 0.5em 1em;
+  padding: 0.25em 1em;
 
-export default QRCodeDisplay;
+  ${props => props.primary && css`
+    background: royalblue;
+    color: white;
+  `}
+`;
+
+const Container = styled.div`
+  text-align: center;
+  background: papayawhip;
+  height: 30vh;
+`
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0.5em 1em;
+  padding: 0.25em 1em;
+
+  ${props => props.primary && css`
+    background: palevioletred;
+    color: white;
+  `}
+`;
+
+export default class QRCodeDisplay extends React.Component {
+  state = {
+    text: "testing"
+    // This would somehow be delivered (from Mongo)
+  };
+
+  generateQrCode = (event) => {
+    var canvas = document.getElementById('canvas')
+    QRCode.toCanvas(canvas, this.state.text, function (error) {
+      if (error) console.error(error)
+      console.log('success!');
+    })
+  };
+  componentDidMount() {
+    this.generateQrCode();
+  }
+  render() {
+    return(
+      <Container>
+        <p>QRCodeDisplay here.</p>
+        <QRCanvas
+          id="canvas"
+        ></QRCanvas>
+      </Container>
+    );
+  };
+} 
