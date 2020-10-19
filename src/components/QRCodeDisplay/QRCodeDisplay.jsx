@@ -1,6 +1,7 @@
 import React from "react";
 import QRCode from "qrcode";
 import styled, { css } from 'styled-components'
+import axios from 'axios';
 
 const QRCanvas = styled.canvas`
   background: transparent;
@@ -37,14 +38,9 @@ const Button = styled.button`
 `;
 
 export default class QRCodeDisplay extends React.Component {
-  state = {
-    text: "testing"
-    // This would somehow be delivered (from Mongo)
-  };
-
   generateQrCode = (event) => {
     var canvas = document.getElementById('canvas')
-    QRCode.toCanvas(canvas, this.state.text, function (error) {
+    QRCode.toCanvas(canvas, localStorage.getItem("userid"), function (error) {
       if (error) console.error(error)
       console.log('success!');
     })

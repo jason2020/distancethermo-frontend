@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from 'styled-components'
+import axios from 'axios';
 
 import api from "../../api";
 
@@ -62,6 +63,16 @@ export default class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const user = {
+      email: this.state.email,
+      password_plain: this.state.password
+    };
+    axios.post(`localhost:3000/api/login`, {user})
+      .then(res => {
+        console.log(res);
+        console.log(res.data.userid);
+        localStorage.setItem("userid", res.data.userid);
+      })
   };
 
   render() {

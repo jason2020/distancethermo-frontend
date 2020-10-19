@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from 'styled-components'
+import axios from 'axios';
 
 import api from "../../api";
 
@@ -45,10 +46,14 @@ export default class Signup extends React.Component {
   state = {
     email: "",
     password: "",
+    fname: "",
+    lname: "",
+    phoneNum: "",
+    address: ""
   };
 
   validateForm = () => {
-    console.log(this.state.email, this.state.password);
+    console.log(this.state);
     return this.state.email.length > 0 && this.state.password.length > 0;
   };
 
@@ -60,11 +65,30 @@ export default class Signup extends React.Component {
     this.setState({ password });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  setfname = (fname) => {
+    this.setState({ fname });
   };
 
-  
+  setlname = (lname) => {
+    this.setState({ lname });
+  };
+
+  setphoneNum = (phoneNum) => {
+    this.setState({ phoneNum });
+  };
+
+  setaddress = (address) => {
+    this.setState({ address });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const user = {
+      email: this.state.email,
+      password_plain: this.state.password
+    };
+    axios.post(`localhost:3000/api/signup`, {user})
+  };
 
   render() {
     return (
@@ -83,6 +107,34 @@ export default class Signup extends React.Component {
               onChange={(e) => this.setPassword(e.target.value)}
               type="password"
               label="Password"
+            />
+            <TextField
+              autoFocus
+              type="text"
+              value={this.state.fname}
+              onChange={(e) => this.setfname(e.target.value)}
+              label="First Name"
+            />
+            <TextField
+              autoFocus
+              type="text"
+              value={this.state.lname}
+              onChange={(e) => this.setlname(e.target.value)}
+              label="Last Name"
+            />
+            <TextField
+              autoFocus
+              type="tel"
+              value={this.state.phoneNum}
+              onChange={(e) => this.setphoneNum(e.target.value)}
+              label="Phone Number"
+            />
+            <TextField
+              autoFocus
+              type="text"
+              value={this.state.address}
+              onChange={(e) => this.setaddress(e.target.value)}
+              label="Address"
             />
             <Button
               disabled={!this.validateForm()}
