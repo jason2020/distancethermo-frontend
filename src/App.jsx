@@ -27,15 +27,9 @@ function App() {
         </nav>
 
         <Switch>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/code">
-            <QRCodeDisplay />
-          </Route>
+          <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/signup" component={Signup}></Route>
+          <Route exact path="/code" component={QRCodeDisplay}></Route>
         </Switch>
       </div>
     </Router>
