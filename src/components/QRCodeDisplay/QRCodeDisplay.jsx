@@ -5,11 +5,8 @@ import axios from 'axios';
 
 const QRCanvas = styled.canvas`
   background: transparent;
-  border-radius: 3px;
-  border: 2px solid royalblue;
   color: royalblue;
-  margin: 0.5em 1em;
-  padding: 0.25em 1em;
+  height: 50%;
 
   ${props => props.primary && css`
     background: royalblue;
@@ -20,7 +17,7 @@ const QRCanvas = styled.canvas`
 const Container = styled.div`
   text-align: center;
   background: papayawhip;
-  height: 30vh;
+  height: 100vh;
 `
 
 const Button = styled.button`
@@ -40,7 +37,8 @@ const Button = styled.button`
 export default class QRCodeDisplay extends React.Component {
   generateQrCode = (event) => {
     var canvas = document.getElementById('canvas')
-    QRCode.toCanvas(canvas, localStorage.getItem("userid"), function (error) {
+    QRCode.toCanvas(canvas, "testing", function (error) {
+    // QRCode.toCanvas(canvas, localStorage.getItem("userid"), function (error) {
       if (error) console.error(error)
       console.log('success!');
     })
@@ -51,7 +49,7 @@ export default class QRCodeDisplay extends React.Component {
   render() {
     return(
       <Container>
-        <p>QRCodeDisplay here.</p>
+        <p>Scan your QR code here!.</p>
         <QRCanvas
           id="canvas"
         ></QRCanvas>
