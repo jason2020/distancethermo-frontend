@@ -96,6 +96,10 @@ export default class Signup extends React.Component {
   render() {
     return (
       <>
+        <br />
+        <br />
+        <br />
+        <br />
         <div className="container">
           <form onSubmit={this.handleSubmit}>
             <div className="field">
