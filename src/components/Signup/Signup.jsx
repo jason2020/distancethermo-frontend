@@ -57,7 +57,6 @@ export default class Signup extends React.Component {
   };
 
   validateForm = () => {
-    console.log(this.state);
     return this.state.email.length > 0 && this.state.password.length > 0;
   };
 
@@ -90,8 +89,13 @@ export default class Signup extends React.Component {
     const user = {
       email: this.state.email,
       password_plain: this.state.password,
+      firstName: this.state.fname,
+      lastName: this.state.lname,
+      phone: this.state.phoneNum,
+      address: this.state.address,
     };
-    axios.post(`http://localhost:3000/api/signup`, { user });
+    console.log(user);
+    axios.post(`http://localhost:3000/api/signup`, user);
   };
 
   render() {
