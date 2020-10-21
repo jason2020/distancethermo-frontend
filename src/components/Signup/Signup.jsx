@@ -1,6 +1,5 @@
 import React from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
-import axios from "axios";
 
 import api from "../../api";
 
@@ -94,115 +93,114 @@ export default class Signup extends React.Component {
       phone: this.state.phoneNum,
       address: this.state.address,
     };
-    console.log(user);
-    axios.post(`http://localhost:3000/api/signup`, user);
+    api.post(`/signup`, user);
   };
 
   render() {
     return (
       <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className="container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
-              <input
-                type="email"
-                className="input"
-                autoFocus
-                value={this.state.email}
-                onChange={(e) => this.setEmail(e.target.value)}
-                label="Email"
-                placeholder="Email"
-              />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="field">
+              <label className="label">Email</label>
+              <div className="control">
+                <input
+                  type="email"
+                  className="input"
+                  autoFocus
+                  value={this.state.email}
+                  onChange={(e) => this.setEmail(e.target.value)}
+                  label="Email"
+                  placeholder="Email"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
-              <input
-                type="password"
-                className="input"
-                value={this.state.password}
-                onChange={(e) => this.setPassword(e.target.value)}
-                label="Password"
-                placeholder="Password"
-              />
+            <div className="field">
+              <label className="label">Password</label>
+              <div className="control">
+                <input
+                  type="password"
+                  className="input"
+                  value={this.state.password}
+                  onChange={(e) => this.setPassword(e.target.value)}
+                  label="Password"
+                  placeholder="Password"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">First Name</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={this.state.fname}
-                onChange={(e) => this.setfname(e.target.value)}
-                label="First Name"
-                placeholder="First Name"
-              />
+            <div className="field">
+              <label className="label">First Name</label>
+              <div className="control">
+                <input
+                  type="text"
+                  className="input"
+                  value={this.state.fname}
+                  onChange={(e) => this.setfname(e.target.value)}
+                  label="First Name"
+                  placeholder="First Name"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">Last name</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={this.state.lname}
-                onChange={(e) => this.setlname(e.target.value)}
-                label="Last Name"
-                placeholder="Last Name"
-              />
+            <div className="field">
+              <label className="label">Last name</label>
+              <div className="control">
+                <input
+                  type="text"
+                  className="input"
+                  value={this.state.lname}
+                  onChange={(e) => this.setlname(e.target.value)}
+                  label="Last Name"
+                  placeholder="Last Name"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">Phone Number</label>
-            <div className="control">
-              <input
-                type="tel"
-                className="input"
-                value={this.state.phoneNum}
-                onChange={(e) => this.setphoneNum(e.target.value)}
-                label="Phone Number"
-                placeholder="Phone Number"
-              />
+            <div className="field">
+              <label className="label">Phone Number</label>
+              <div className="control">
+                <input
+                  type="tel"
+                  className="input"
+                  value={this.state.phoneNum}
+                  onChange={(e) => this.setphoneNum(e.target.value)}
+                  label="Phone Number"
+                  placeholder="Phone Number"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="field">
-            <label className="label">Address</label>
-            <div className="control">
-              <input
-                type="text"
-                className="input"
-                value={this.state.address}
-                onChange={(e) => this.setaddress(e.target.value)}
-                label="Address"
-                placeholder="Address"
-              />
+            <div className="field">
+              <label className="label">Address</label>
+              <div className="control">
+                <input
+                  type="text"
+                  className="input"
+                  value={this.state.address}
+                  onChange={(e) => this.setaddress(e.target.value)}
+                  label="Address"
+                  placeholder="Address"
+                />
+              </div>
             </div>
-          </div>
 
-          <br />
-          <button
-            className="button"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-    </>
+            <br />
+            <button
+              className="button"
+              disabled={!this.validateForm()}
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </>
     );
   }
 }
