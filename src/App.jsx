@@ -23,7 +23,7 @@ function App() {
                 height={28}
               /> */}
             </a>
-            <a
+            <div
               role="button"
               className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
               aria-label="menu"
@@ -36,16 +36,18 @@ function App() {
               <span aria-hidden="true" />
               <span aria-hidden="true" />
               <span aria-hidden="true" />
-            </a>
+            </div>
           </div>
           <div
             id="navbarBasicExample"
             className={`navbar-menu ${isActive ? "is-active" : ""}`}
           >
             <div className="navbar-start">
-              <a className="navbar-item">
-                <Link to="/code">View My Code</Link>
-              </a>
+              {/* <a> */}
+              <Link to="/code" className="navbar-item">
+                View My Code
+              </Link>
+              {/* </a> */}
             </div>
             <div className="navbar-end">
               <div className="navbar-item">

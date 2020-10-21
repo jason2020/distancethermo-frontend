@@ -56,7 +56,6 @@ export default class Signup extends React.Component {
   };
 
   validateForm = () => {
-    console.log(this.state);
     return this.state.email.length > 0 && this.state.password.length > 0;
   };
 
