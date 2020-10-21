@@ -9,6 +9,8 @@ import QRCodeDisplay from "./components/QRCodeDisplay/QRCodeDisplay";
 const history = createBrowserHistory();
 
 function App() {
+  const [isActive, setisActive] = React.useState(false);
+
   return (
     <Router history={history}>
       <div>
@@ -23,9 +25,12 @@ function App() {
             </a>
             <a
               role="button"
-              className="navbar-burger burger"
+              className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
               aria-label="menu"
               aria-expanded="false"
+              onClick={() => {
+                setisActive(!isActive);
+              }}
               data-target="navbarBasicExample"
             >
               <span aria-hidden="true" />
@@ -33,7 +38,10 @@ function App() {
               <span aria-hidden="true" />
             </a>
           </div>
-          <div id="navbarBasicExample" className="navbar-menu">
+          <div
+            id="navbarBasicExample"
+            className={`navbar-menu ${isActive ? "is-active" : ""}`}
+          >
             <div className="navbar-start">
               <a className="navbar-item">
                 <Link to="/code">View My Code</Link>
