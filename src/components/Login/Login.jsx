@@ -1,40 +1,43 @@
 import React from "react";
-import styled, { css } from "styled-components";
+
 import axios from "axios";
+
+import styled, { css } from "styled-components";
+import "react-bulma-components/dist/react-bulma-components.min.css";
 
 import api from "../../api";
 
-const TextField = styled.input`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid royalblue;
-  color: royalblue;
-  margin: 0.5em 1em;
-  padding: 0.25em 1em;
+// const TextField = styled.input`
+//   background: transparent;
+//   border-radius: 3px;
+//   border: 2px solid royalblue;
+//   color: royalblue;
+//   margin: 0.5em 1em;
+//   padding: 0.25em 1em;
 
-  ${(props) =>
-    props.primary &&
-    css`
-      background: royalblue;
-      color: white;
-    `}
-`;
+//   ${(props) =>
+//     props.primary &&
+//     css`
+//       background: royalblue;
+//       color: white;
+//     `}
+// `;
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0.5em 1em;
-  padding: 0.25em 1em;
+// const Button = styled.button`
+//   background: transparent;
+//   border-radius: 3px;
+//   border: 2px solid palevioletred;
+//   color: palevioletred;
+//   margin: 0.5em 1em;
+//   padding: 0.25em 1em;
 
-  ${(props) =>
-    props.primary &&
-    css`
-      background: palevioletred;
-      color: white;
-    `}
-`;
+//   ${(props) =>
+//     props.primary &&
+//     css`
+//       background: palevioletred;
+//       color: white;
+//     `}
+// `;
 
 const Container = styled.div`
   text-align: center;
@@ -84,22 +87,23 @@ export default class Login extends React.Component {
       <Container>
         <h1>Login</h1>
         <Form onSubmit={this.handleSubmit}>
-          <TextField
+          <input type="text" class="input is-primary" />
+          {/* <Input
             autoFocus
             type="email"
             value={this.state.email}
             onChange={(e) => this.setEmail(e.target.value)}
             label="Email"
           />
-          <TextField
+          <Input
             value={this.state.password}
             onChange={(e) => this.setPassword(e.target.value)}
             type="password"
             label="Password"
-          />
-          <Button disabled={!this.validateForm()} type="submit">
+          /> */}
+          <button class="button" disabled={!this.validateForm()} type="submit">
             Submit
-          </Button>
+          </button>
         </Form>
       </Container>
     );
