@@ -2,52 +2,10 @@ import React from "react";
 
 import axios from "axios";
 
-import styled, { css } from "styled-components";
 import "react-bulma-components/dist/react-bulma-components.min.css";
+// import styled, { css } from "styled-components";
 
 import api from "../../api";
-
-// const TextField = styled.input`
-//   background: transparent;
-//   border-radius: 3px;
-//   border: 2px solid royalblue;
-//   color: royalblue;
-//   margin: 0.5em 1em;
-//   padding: 0.25em 1em;
-
-//   ${(props) =>
-//     props.primary &&
-//     css`
-//       background: royalblue;
-//       color: white;
-//     `}
-// `;
-
-// const Button = styled.button`
-//   background: transparent;
-//   border-radius: 3px;
-//   border: 2px solid palevioletred;
-//   color: palevioletred;
-//   margin: 0.5em 1em;
-//   padding: 0.25em 1em;
-
-//   ${(props) =>
-//     props.primary &&
-//     css`
-//       background: palevioletred;
-//       color: white;
-//     `}
-// `;
-
-const Container = styled.div`
-  text-align: center;
-  background: papayawhip;
-  height: 30vh;
-`;
-
-const Form = styled.form`
-  width: 100%;
-`;
 
 export default class Login extends React.Component {
   state = {
@@ -84,28 +42,50 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <Container>
+      <>
         <h1>Login</h1>
-        <Form onSubmit={this.handleSubmit}>
-          <input type="text" class="input is-primary" />
-          {/* <Input
-            autoFocus
-            type="email"
-            value={this.state.email}
-            onChange={(e) => this.setEmail(e.target.value)}
-            label="Email"
-          />
-          <Input
-            value={this.state.password}
-            onChange={(e) => this.setPassword(e.target.value)}
-            type="password"
-            label="Password"
-          /> */}
-          <button class="button" disabled={!this.validateForm()} type="submit">
-            Submit
-          </button>
-        </Form>
-      </Container>
+        <div className="container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="field">
+              <label className="label">Email</label>
+              <div className="control">
+                <input
+                  type="email"
+                  className="input"
+                  autoFocus
+                  value={this.state.email}
+                  onChange={(e) => this.setEmail(e.target.value)}
+                  label="Email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Password</label>
+              <div className="control">
+                <input
+                  type="password"
+                  className="input"
+                  value={this.state.password}
+                  onChange={(e) => this.setPassword(e.target.value)}
+                  label="Password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+
+            <br />
+            <button
+              className="button"
+              disabled={!this.validateForm()}
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </>
     );
   }
 }
