@@ -1,7 +1,4 @@
 import React from "react";
-
-import axios from "axios";
-
 import "react-bulma-components/dist/react-bulma-components.min.css";
 // import styled, { css } from "styled-components";
 
@@ -14,7 +11,6 @@ export default class Login extends React.Component {
   };
 
   validateForm = () => {
-    console.log(this.state.email, this.state.password);
     return this.state.email.length > 0 && this.state.password.length > 0;
   };
 
@@ -33,9 +29,8 @@ export default class Login extends React.Component {
       password_plain: this.state.password,
     };
     console.log(user);
-    axios.post(`http://localhost:3000/api/login`, user).then((res) => {
-      console.log(res);
-      console.log(res.data._id);
+    api.post(`/login`, user).then((res) => {
+      console.log(res.data);
       localStorage.setItem("userid", res.data._id);
     });
   };
