@@ -1,49 +1,6 @@
 import React from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
-
 import api from "../../api";
-
-// const TextField = styled.input`
-//   background: transparent;
-//   border-radius: 3px;
-//   border: 2px solid royalblue;
-//   color: royalblue;
-//   margin: 0.5em 1em;
-//   padding: 0.25em 1em;
-
-//   ${(props) =>
-//     props.primary &&
-//     css`
-//       background: royalblue;
-//       color: white;
-//     `}
-// `;
-
-// const Button = styled.button`
-//   background: transparent;
-//   border-radius: 3px;
-//   border: 2px solid palevioletred;
-//   color: palevioletred;
-//   margin: 0.5em 1em;
-//   padding: 0.25em 1em;
-
-//   ${(props) =>
-//     props.primary &&
-//     css`
-//       background: palevioletred;
-//       color: white;
-//     `}
-// `;
-
-// const Container = styled.div`
-//   text-align: center;
-//   background: papayawhip;
-//   height: 30vh;
-// `;
-
-// const Form = styled.form`
-//   width: 100%;
-// `;
 
 export default class Signup extends React.Component {
   state = {
